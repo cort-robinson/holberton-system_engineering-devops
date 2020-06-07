@@ -1,0 +1,2 @@
+#!/bin/bash
+find | cut -c 3-
