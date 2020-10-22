@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
-until ((i == 10))
+while ((i < 10))
 do
+    echo "Holberton School"
     if ((i == 8))
     then
-        echo "Holberton School"
         echo "Hi"
-    else
-        echo "Holberton School"
     fi
     ((i++))
 done
