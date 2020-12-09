@@ -1,0 +1,5 @@
+Host Holberton
+  HostName 35.243.134.103
+  User Ubuntu
+  Port 2222
+  IdentityFile ~/.ssh/holberton
