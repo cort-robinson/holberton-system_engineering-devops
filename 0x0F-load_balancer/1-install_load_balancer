@@ -11,4 +11,5 @@ backend web_servers_backend
 \tserver 1803-web-01 35.243.134.103:80 check
 \tserver 1803-web-02 34.75.53.215:80 check
 ' >> /etc/haproxy/haproxy.cfg
+sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
 sudo service haproxy restart
