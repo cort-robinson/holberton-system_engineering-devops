@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# copies nginx sites backup to replace sites enabled
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
