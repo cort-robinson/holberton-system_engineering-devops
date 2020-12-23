@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
+# displays info on subdomains
+subcheck () {
+    dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk -v subdomain="$2" '$1~subdomain {print "The subdomain " subdomain " is a " $4 " record and points to "  $5}'
+}
 if [ $# -eq 2 ]
 then
-    dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk -v subdomain="$2" '$1~subdomain {print "The subdomain " subdomain " is a " $4 " record and points to "  $5}'
+    subcheck "$1" "$2"
 else
     for sub in www lb-01 web-01 web-02
     do
-        dig $sub.$1 | grep -A1 'ANSWER SECTION:' | awk -v subdomain="$sub" '$1~subdomain {print "The subdomain " subdomain " is a " $4 " record and points to "  $5}'
+        subcheck "$1" "$sub"
     done
 fi
