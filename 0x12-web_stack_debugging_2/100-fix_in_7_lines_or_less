@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# set nginx to run as nginx user and listen on port 8080
+# same as before
 sudo pkill apache2
 sudo chown nginx:nginx /etc/nginx/nginx.conf
 sudo chmod 700 /etc/nginx/nginx.conf
