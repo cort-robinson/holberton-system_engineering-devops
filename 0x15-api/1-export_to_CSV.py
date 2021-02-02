@@ -6,9 +6,9 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    employee_name = ((requests.get(
+    username = ((requests.get(
         'https://jsonplaceholder.typicode.com/users/{}'.format(
-            argv[1]))).json()).get('name')
+            argv[1]))).json()).get('username')
     todos = (requests.get(
         'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
             argv[1]))).json()
@@ -17,7 +17,7 @@ if __name__ == '__main__':
         f_writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         for todo in todos:
             f_writer.writerow([todo.get('userId'),
-                               employee_name,
+                               username,
                                todo.get('completed'),
                                todo.get('title')
                                ])
