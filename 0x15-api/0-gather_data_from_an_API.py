@@ -16,4 +16,4 @@ completed = [todo for todo in todos if todo.get('completed') is True]
 print("Employee {:s} is done with tasks({}/{}):".format(
     employee_name, len(completed), len(todos)))
 for task in completed:
-    print("\t{:s}".format(task.get('title')))
+    print("\t {:s}".format(task.get('title')))
