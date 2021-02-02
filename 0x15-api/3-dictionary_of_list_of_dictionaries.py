@@ -25,5 +25,5 @@ if __name__ == '__main__':
         'https://jsonplaceholder.typicode.com/users').json()]
     todo_all_employees_dict = {
         user_id: gen_dict(user_id) for user_id in users}
-    with open('todo_all_employees', 'w') as f:
+    with open('todo_all_employees.json', 'w') as f:
         json.dump(todo_all_employees_dict, f)
