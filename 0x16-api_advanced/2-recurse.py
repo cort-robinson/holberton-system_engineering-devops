@@ -3,7 +3,7 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], after=''):
     """
     Queries Reddit API and returns list with titles
     of all hot articles for given subreddit
@@ -12,7 +12,11 @@ def recurse(subreddit, hot_list=[]):
         'https://www.reddit.com/r/{}/hot.json'.format(
             subreddit),
         headers={'user-agent': "Cort's requests"},
-        allow_redirects=False).json().get('data').get('children')
-    for post in request:
+        params={'after': after},
+        allow_redirects=False).json()
+    after = request.get('data').get('after')
+    for post in request.get('data').get('children'):
         hot_list.append(post.get('data').get('title'))
+    if after:
+        recurse(subreddit, hot_list, after)
     return hot_list
