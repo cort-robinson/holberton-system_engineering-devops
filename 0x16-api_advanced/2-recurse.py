@@ -13,7 +13,9 @@ def recurse(subreddit, hot_list=[], after=''):
             subreddit),
         headers={'user-agent': "Cort's requests"},
         params={'after': after},
-        allow_redirects=False).json()
+        allow_redirects=False)
+    if request.status_code != 200:
+        return None
     after = request.get('data').get('after')
     for post in request.get('data').get('children'):
         hot_list.append(post.get('data').get('title'))
